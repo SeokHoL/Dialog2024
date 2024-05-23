@@ -13,15 +13,16 @@ class MainActivity : AppCompatActivity() {
 
         var btnDialog =findViewById<Button>(R.id.btnDialog)
         
-        //기본목록대화상자
+        //라디오 버튼 목록 대화상자
         btnDialog.setOnClickListener{
             var placesArr = arrayOf("프라하","카파도키아","포르투")
+            var selectArr = booleanArrayOf(false, true, false)
             var dialog = AlertDialog.Builder(this@MainActivity)
             dialog.setTitle("좋아하는 핫플")
             dialog.setIcon(R.drawable.conversation)
             //d1: 클릭된 대화 상자를 나타내는 DialogInterface 객체.
             //which: 클릭된 항목의 인덱스를 나타내는 Int.
-            dialog.setItems(placesArr){ d1, which ->
+            dialog.setSingleChoiceItems(placesArr, 1){ d1, which ->
                 btnDialog.text = placesArr[which]
 
             }
